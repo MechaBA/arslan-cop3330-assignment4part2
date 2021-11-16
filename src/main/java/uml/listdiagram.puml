@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+list <- assign: compare
+list <-- obj: writeAsObject, readAsObject
+list <-- App: setTitle, setDate, getDueDate, setUser, getProject, setProject, getComplete, setComplete, toString
+list <-- listjava: showApps, markComplete, removeApps, showAppsByProject, showAppsByDate, editApp, editAppOptions, completedAppsCounter, incompleteAppsCounter, save, addApp, validateDate, convertToDate
+
+@enduml

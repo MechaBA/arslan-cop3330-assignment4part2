@@ -1,0 +1,65 @@
+
+Class    public App()
+    {
+output        this.title = title;
+output        this.project = project;
+output        this.due = due;
+output        this.use = use;
+output        this.complete = false;
+    }
+
+
+
+Class    public void setTitle(String title)
+    {
+output        this.title = title;
+    }
+
+
+
+Class    public void setDate(LocalDate date)
+    {
+output        this.due = date;
+    }
+
+
+
+Class    public LocalDate getDueDate()
+    {
+return        return due;
+    }
+
+
+
+Class    public void setUser(String use)
+    {
+output        this.use = use;
+    }
+
+
+
+Class    public String getProject()
+    {
+return        return project;
+    }
+
+
+
+Class   public void setProject(String project)
+    {
+output        this.project = project;
+    }
+
+
+
+Class    public void setComplete(boolean done)
+    {
+output        this.complete = done;
+    }
+
+
+
+Class    public boolean getComplete()
+    {
+return        return complete;
+    }

@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class list(group)
+{
+    + assign
+    App (Set Variables)
+    list (Implement Variables)
+    obj (File)
+}
+
+@enduml

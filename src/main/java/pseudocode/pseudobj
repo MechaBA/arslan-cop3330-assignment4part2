@@ -1,0 +1,63 @@
+
+//Call writeAsObject
+Class    public void writeAsObject(ArrayList<App> apps)
+        {
+Statement(execute)            try
+            {
+File                File file = new File("objectFile.txt");
+File                FileOutputStream fileStream = new FileOutputStream(file);
+File                ObjectOutputStream writer = new ObjectOutputStream(fileStream);
+                writer.writeObject(apps);
+                writer.close();
+                fileStream.close();
+            }
+Trace            catch(FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+Trace            catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+
+
+//Call readAsObject
+Class        public ArrayList<App> readAsObject()
+        {
+            ArrayList<App> list = new ArrayList<>();
+
+File            File file1 = new File("objectFile.txt");
+
+Statement            if(!file1.exists())
+Return                return list;
+
+Statement(execute)            try
+            {
+File                File file = new File("objectFile.txt");
+
+                FileInputStream fileStream = new FileInputStream(file);
+                ObjectInputStream reader = new ObjectInputStream(fileStream);
+
+Statement                for(App app : list = (ArrayList<App>) reader.readObject()) {
+
+                }
+
+                reader.close();
+                fileStream.close();
+            }
+Trace            catch(ClassNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+Trace            catch(FileNotFoundException e)
+            {
+                e.printStackTrace();
+            }
+Trace            catch(IOException e)
+            {
+                e.printStackTrace();
+            }
+Return            return list;
+        }

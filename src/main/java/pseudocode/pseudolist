@@ -1,0 +1,228 @@
+
+Class       public list()
+       {
+Entry           writerAndReader = new obj();
+Statement           apps = writerAndReader.readAsObject();
+       }
+
+
+
+Class       public list(ArrayList<App> apps)
+       {
+End           this.apps = apps;
+       }
+
+
+
+//Show list with what you added, removed, or edited
+Class       public void showApps()
+       {
+           System.out.println(s2 + "To-do list App" + s4);
+           System.out.println(s2 + "----------" + s4);
+           int number = 0;
+Statement           for(App app : apps)
+           {
+Output               System.out.println(++number + " " + app);
+           }
+           System.out.println(s2 + "----------" + s4);
+       }
+
+
+
+//Task finished
+Class       public void markComplete(App app)
+       {
+Statement           if(app.getComplete())
+           {
+Output               System.out.println("None.");
+           }
+           else
+           {
+               app.setComplete(true);
+Output               System.out.println("Marked " + app + " as complete.");
+           }
+       }
+
+
+
+//Remove option
+Class       public void removeApps(App app)
+       {
+Output           System.out.println("Remove.");
+
+           apps.remove(app);
+
+Output           System.out.println("Operation deleted.");
+       }
+
+
+
+//Calling to show app
+Class       public void showAppsByProject()
+       {
+           List<App> list = this.apps.stream()
+Statement                   .sorted(Comparator.comparing(app -> app.getProject()))
+                   .collect(Collectors.toList());
+           this.apps = new ArrayList<>(list);
+       }
+
+
+
+//Edit option
+Class       public void editApp()
+       {
+           showApps();
+Input           System.out.println(s1 + "What task do you want to edit?" + s4);
+           String indexString = scanner.nextLine();
+
+           int index = Integer.parseInt(indexString);
+
+Statement           if((index - 1) < 0 || index > apps.size())
+           {
+Output               System.out.println(s1 + "Wrong input. Enter in range of 1 to " + apps.size() + s4);
+           }
+           else
+           {
+               App app = apps.get(index - 1);
+               editAppOptions(app);
+Output               System.out.println("Current: " + app.toString() + " successfully edited");
+               showApps();
+           }
+       }
+
+
+
+//Making the list with it's assignments and due date
+List           switch (editChoices)
+           {
+Entry               case 1 -> {
+Input                   System.out.println("Input new title: ");
+                   String title = scanner.nextLine();
+                   app.setTitle(title);
+Output                   System.out.println("Title changed.");
+               }
+
+Entry               case 2 -> {
+Input                   System.out.print("Input new due date (YYYY/MM/DD): ");
+                   LocalDate date = validateDate();
+                   app.setDate(date);
+Output                   System.out.println("Due date changed.");
+               }
+
+Entry               case 3 -> {
+Input                   System.out.println("Input an assignment name: ");
+                   String project = scanner.nextLine();
+                   app.setProject(project);
+Output
+               }
+
+Entry               case 4 -> {
+                   markComplete(app);
+Output                   System.out.println("Finished.");
+                   break;
+               }
+
+Entry               case 5 -> {
+Input                   System.out.println("Delete? ");
+                   removeApps(app);
+Output                   System.out.println("Deleted.");
+               }
+
+Entry               case 6 -> {
+Input                   System.out.println("Go to main menu? ");
+                   break;
+               }
+
+then               default -> throw new IllegalStateException("Value: " + editChoices);
+           }
+           save();
+           showApps();
+       }
+
+
+
+//Call completedAppsCounter
+Class       public int completedAppsCounter()
+       {
+           int counter = 0;
+           for(App app : apps)
+           {
+Statement               if(app.getComplete())
+               {
+                   counter++;
+               }
+           }
+Return           return counter;
+       }
+
+
+//Call incompleteAppsCounter
+Class       public int incompleteAppsCounter()
+       {
+           int counter = 0;
+Statement           for(App app : apps)
+           {
+Statement               if(!app.getComplete())
+               {
+                   counter++;
+               }
+           }
+Return           return counter;
+       }
+
+
+
+//Add option
+Class       public void addApp()
+       {
+           App app;
+           app = new App();
+           Scanner scanner = new Scanner(System.in);
+Input           System.out.println("Enter name: ");
+           String name = scanner.nextLine();
+Input           System.out.println("Enter assignment to add app: ");
+           String project = scanner.nextLine();
+Input           System.out.println("Enter title: ");
+           String title = scanner.nextLine();
+Input           System.out.print("Enter assignment due date (YYYY/MM/DD): ");
+           LocalDate date = validateDate();
+
+           app.setUser(name);
+           app.setTitle(title);
+           app.setProject(project);
+           app.setDate(date);
+           apps.add(app);
+           save();
+           showApps();
+       }
+
+
+
+//Entering the date
+Class       public LocalDate validateDate()
+       {
+           Scanner scanner = new Scanner(System.in);
+           while(true)
+           {
+               LocalDate date = convertToDate(scanner.nextLine());
+Statement               if(date != null)
+                   return date;
+               else
+Input                   System.out.println("Enter date: ");
+           }
+       }
+
+
+//Calling for date
+Class       public LocalDate convertToDate(String dateString)
+       {
+Statement(execute)           try
+           {
+return               return LocalDate.parse(dateString, SimpleDateFormat);
+           }
+trace           catch(DateTimeParseException e)
+           {
+               System.out.println(e.getMessage());
+return               return null;
+           }
+       }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GUI"
+            prefHeight="400.0" prefWidth="600.0">
+        <Button text="Start Application" onAction="#onButtonClick"/>
+        <Button text="Add App" onAction="#onButtonClick"/>
+        <Button text="Remove App" onAction="#onButtonClick"/>
+        <Button text="Edit App" onAction="#onButtonClick"/>
+</AnchorPane>

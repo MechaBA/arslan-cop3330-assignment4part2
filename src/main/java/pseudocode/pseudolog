@@ -1,0 +1,79 @@
+
+//Menu
+Class        public static void seeMenu()
+        {
+            System.out.println(s3 + "----------" + s4);
+Input            System.out.println(s1 + "There is: " + todo.incompleteAppsCounter() + ' ' + "tasks completed with" + ' ' + todo.completedAppsCounter() + ' ' + "done" + s4);
+            System.out.println(s3 + "----------" + s4);
+Input            System.out.println(s3 + "Pick option:" + s4);
+Option            System.out.println(s2 + "1." + s4 + "Show list by date/project ");
+Option            System.out.println(s2 + "2." + s4 + "Add new task ");
+Option            System.out.println(s2 + "3." + s4 + "Edit task ");
+Option            System.out.println(s2 + "4." + s4 + "Save and quit ");
+            System.out.println(s5 + "Make a selection (1-4) " + s4);
+Input            System.out.print(s3 + "Selection: " + s4);
+        }
+
+
+
+List statement            switch (editChoices)
+            {
+Entry                case 1 -> {
+do                    todo.showApps();
+                }
+
+Entry                case 2 -> {
+                    System.out.println("Task by due date: ");
+do                    todo.showAppsByDate();
+                }
+
+Entry                case 3 -> {
+                    System.out.println("Task by project: ");
+do                    todo.showAppsByProject();
+                }
+
+Entry                case 4 -> {
+                    break;
+                }
+then                default -> throw new IllegalStateException("Number: " + editChoices);
+            }
+            todo.save();
+            todo.showApps();
+        }
+
+
+Class        public void run()
+        {
+            int choice = 0;
+            {
+                while(choice != 4)
+                {
+                    seeMenu();
+                    String input = scanner.nextLine();
+                    choice = Integer.parseInt(input);
+                    System.out.println("Task (edit/remove): ");
+
+                    switch(choice)
+                    {
+Entry                        case 1 -> {
+                            System.out.println("List of tasks: ");
+do                            showAppsMenu();
+                        }
+
+Entry                        case 2 -> {
+                            System.out.println("Add new task (edit/remove): ");
+do                            todo.addApp();
+                        }
+
+Entry                        case 3 -> todo.editApp();
+
+Entry                        case 4 -> {
+                            System.out.println("Terminate system. ");
+do                            todo.save();
+                            System.exit(0);
+                        }
+then                        default -> System.out.println("Choose a number (1-4): ");
+                    }
+                }
+            }
+        }

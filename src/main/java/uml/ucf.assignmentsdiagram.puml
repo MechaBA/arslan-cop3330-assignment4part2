@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+ucf.assignments <- Main: main (Run Program)
+ucf.assignments <-- log: seeMenu, showAppsMenu, run
+
+@enduml

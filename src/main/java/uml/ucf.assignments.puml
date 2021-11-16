@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Main(group)
+{
+    log (Input)
+    + Main
+}
+
+@enduml
